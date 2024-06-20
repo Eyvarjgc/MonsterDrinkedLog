@@ -1,7 +1,7 @@
 
 const urlParams = new URLSearchParams(window.location.search)
 const monsterName = urlParams.get('name')
-const url =  'http://localhost:3000/api/monster/info'
+const url =  'https://monsterdrinkedlog.onrender.com/api/monster'
 const content = document.querySelector('.container')
 console.log(monsterName);
 
