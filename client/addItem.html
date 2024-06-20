@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/addItem.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Frijole&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="main-hero">
+      <picture>
+        <a href="http://localhost:3000"><img src="../assets/Monster logo.png" alt=""></a>
+      </picture>
+  
+      <div class="container-links">
+        <a href="../addItem.html" class="addNew frijole-regular">Agregar nueva <span>Monster</span></a>
+        <!-- <a href="#" class="update frijole-regular"> Actualizar <span>Monster</span></a> -->
+      </div>
+    </nav>
+  
+    <form action="" class="form">
+      <figure>
+        <img src="assets/Monster-Energy-Symbol-1024x576.png" alt="">
+      </figure>
+      <h1 class="frijole-regular new">!Nueva Monster!</h1>
+      <div class="input-container">
+        <input type="text" placeholder="nombre" class="monsterName inputElement">
+        <input type="text" placeholder="url imagen" class="monsterImage inputElement">
+        <input type="number" placeholder="rate" class="monsterRate inputElement">
+        <input type="text" placeholder="color" class="monsterColor inputElement">
+        <input type="text" placeholder="date" class="monsterDate inputElement" value="2024-01-01">
+        <input type="text" placeholder="description" class="monsterDescription inputElement">
+
+
+        <button type="submit"  class="submitButton" > Guardar</button>
+        <div class="alert">
+        </div>
+      </div>
+
+
+
+
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/addItem.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+*{
+  margin:0;
+  padding: 0;
+}
+
+body{
+  /* background: url(../assets/18166b2039b4506db3120d7e49794b85.jpg); */
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 10;
+  background-color: black;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.frijole-regular {
+  font-family: "Frijole", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.creepster-regular {
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.main-hero{
+  z-index: 50;
+  height: 10em;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+
+
+  .container-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 15px;
+    gap: 1em;
+    width: 90%;
+    margin: 0 auto;
+
+    a{
+    color: white;
+    text-shadow: 2px 3px 5px black  ;
+    margin: 0 auto;
+    }
+  }
+
+  picture{
+    min-width:50% ;
+    margin: 0 auto;
+  }
+  img{
+    width: 150px;
+
+  }
+}
+
+
+
+@media (min-width:700px) {
+  .main-hero{
+    height: 10em;
+    width: 80%;
+    flex-direction: row;
+    align-items: center;
+  
+    .container-links{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: nowrap;
+      font-size: 20px;
+      gap: 0em;
+      width: 90%;
+      margin: 0 auto;
+  
+      a{
+      color: white;
+      text-shadow: 2px 3px 5px black  ;
+      margin: 0 auto;
+      }
+    }
+  
+    picture{
+      min-width:20% ;
+      margin: 0 auto;
+    }
+    img{
+      width: 200px;
+  
+    }
+  }
+
+  .container{
+    width: 85%;
+    margin: 5em auto;
+    padding: 1em;
+    
+  }
+
+  .containerMonsterModal{
+    display: flex;
+    align-items: center;
+    height: 15em;
+    border: 0.25em solid rgb(238, 238, 238);
+    color: white;
+    margin-bottom: 10em;
+    img{
+      border-radius: 2em;
+      width: 9em;
+      margin-left: 5em;
+    }
+
+
+    .info{
+      display: flex;
+      flex-direction: column;
+      margin-left: 5em;
+      .monsterName{
+        font-size: 2em;
+      }
+      .monsterDate{
+        font-size: 1em;
+        color: rgb(174, 174, 174);
+      }
+      .monsterRate{
+        font-size: 1.5em;
+        color: greenyellow;
+      }
+      .monsterDescription{
+        font-size: 1em;
+      }
+    }
+  }
+}
