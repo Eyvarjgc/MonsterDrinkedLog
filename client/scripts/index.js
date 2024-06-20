@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/api/monster'
+const url = 'https://monsterdrinkedlog.onrender.com/api/monster'
 
 const items = document.querySelector('.items')
 const modal = document.querySelector('.modal')
