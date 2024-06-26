@@ -1,12 +1,18 @@
 import monsterModel from '../models/monsterModel.js'
-
+import { updateData } from '../schemas/validationData.js'
 ``
 export class MonsterController{
   static async getAll (req,res){
+
     const dataResult = await monsterModel.getMonster()
     
+    if(!dataResult || undefined){
+      return res.status(404)
+        .send({success:false, message: 'There is not items to show'})
+    }
+
     res.status(200)
-    .send({success:true, data: dataResult})
+      .send({success:true, data: dataResult})
 
   }
   static async postOne(req,res){
@@ -37,5 +43,12 @@ export class MonsterController{
 
   }
 
+  static async updatedMonster(req,res){
+    const {id} = req.params
+    const validation = updateData(res.body)
+    const result = await monsterModel.patchMonster(id,validation)
 
+    return res.status(200)
+      .send({success:true,data:result})
+  }
 }

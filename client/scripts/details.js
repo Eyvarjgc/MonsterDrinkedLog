@@ -1,7 +1,7 @@
 
 const urlParams = new URLSearchParams(window.location.search)
 const monsterName = urlParams.get('name')
-const url =  'https://monsterdrinkedlog.onrender.com/api/monster'
+const url =  'https://monsterdrinkedlog.onrender.com/api/monster/info'
 const content = document.querySelector('.container')
 console.log(monsterName);
 
@@ -10,7 +10,7 @@ async function callApi(url, name){
   try {
     const res = await axios.get(url + `/${name}`)
     const data = res.data
-
+    console.log(res);
     const html = data.map((information) =>{
       let date = information.date_drinked.slice(0,10)
 
@@ -25,7 +25,7 @@ async function callApi(url, name){
       <p class="monsterRate">Calififacion: ${information.rate}</p>
       <p class="monsterDescription">${information.description}</p>
       </div>
-
+      <span class="identifier" data-id=${information.id}>Edit</span>
     </div>`
     }).join('')
     content.insertAdjacentHTML('beforeend',html)
@@ -36,4 +36,25 @@ async function callApi(url, name){
   }
 }
 
-callApi(url, monsterName)
+
+
+async function init(url){
+  try{
+    await callApi(url, monsterName)
+    const identifier = document.querySelectorAll('.identifier')
+    identifier.forEach(element => {
+      element.addEventListener('click', (e) => {
+
+        const identifierID = element.dataset.id
+        console.log(identifierID);
+      
+      })
+    });
+
+    
+  }catch(e){
+    console.log(e);
+  }
+}
+
+init(url)

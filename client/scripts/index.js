@@ -12,8 +12,10 @@ async function apiCall(url){
   try{
     const response = await axios.get(url)
 
+    console.log('DEVELOPER API');
+    console.log(response);
 
-    return response.data
+    return response
 
   }
   catch(e){
@@ -24,8 +26,7 @@ async function apiCall(url){
 async function htmlContent(url){
   try{
     const response =  await apiCall(url)
-    const data = response.data
-    console.log(response);
+    const data = response.data.data
     const htmlData = data.map((Element)=> {
       
 
