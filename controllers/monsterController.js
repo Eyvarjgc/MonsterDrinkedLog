@@ -34,21 +34,41 @@ export class MonsterController{
     res.json(result)
   }
 
-  static async getAllInfo(req,res){
-    const {name} = req.params
+  static async getInfo(req,res){
+    const {identifier} = req.params
 
-    const result = await monsterModel.getAllInfo(name)
 
-    res.json(result)
+    if (isNaN(identifier)) {
+      const result = await monsterModel.getInfoByName(identifier)
+
+      res.json(result)
+
+
+  } else {
+      req.params.id = identifier; 
+      const result = await monsterModel.getInfoById(req.params.id) 
+      
+      res.json(result)
+  }
 
   }
 
+
+
   static async updatedMonster(req,res){
     const {id} = req.params
-    const validation = updateData(res.body)
-    const result = await monsterModel.patchMonster(id,validation)
+    // const validation = updateData(res.body)
+    const result = await monsterModel.patchMonster(id,req.body)
 
     return res.status(200)
       .send({success:true,data:result})
+  }
+
+  static async deleteMonster(req,res){
+    const {id} = req.params
+
+    const result = await monsterModel.deleteMonster(id)
+
+    res.json({success:true, message: `item ${id} is deleted`})
   }
 }

@@ -170,7 +170,7 @@ img{
 
   .form{
     width: 40%;
-    height: 80vh;
+    height: max-content;
     box-shadow: 2px 3px 2px greenyellow;
     margin: 0 auto;
     background-color: rgb(41, 41, 41);
@@ -184,31 +184,34 @@ img{
     }
   
     .input-container{
+      padding: 2em;
       margin-top: 1em;
       display: flex;
       flex-direction: column;
+      
       gap: 1em;
       .inputElement{
-        background-color: transparent;
+        background-color: white;
         border: white 1px solid;
         padding: 1em;
-        color: white;
-  
+        color: black;
+        border-radius: 5px;
       }
   
       .inputElement:focus {
         border: none ;
-        color: white;
+        color: black;
       }
       .inputElement::placeholder{
-        color: greenyellow;
+        color: rgba(0, 0, 0, 0.502);
+        
       }
   
       .submitButton{
-        background-color: greenyellow;
-        color: black;
-        padding: 1em;
-        border: none;
+        border-radius: 5px;
+        border: 1px black solid;
+        padding: 0.5em;
+        font-family: frijole;
       }
     }
   
@@ -221,4 +224,11 @@ img{
       font-size: 40px;
     }
   }
+}
+
+label{
+  font: 20px;
+  font-family: Frijole;
+  color: greenyellow;
+  text-align: start;
 }

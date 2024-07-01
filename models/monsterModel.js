@@ -61,17 +61,29 @@ export default class monsterModel{
     }
   }
 
-  static async getAllInfo(name){
+  static async getInfoByName(name){
     try {
       const [result] = await GLOBAL_CONFIG.query(`
       select * from monster where name = ? `, [name])
 
-      
       return result
     } catch (error) {
       console.log(error);
     }
   }
+
+  static async getInfoById(id){
+    try {
+      const [result] = await GLOBAL_CONFIG.query('select * from monster where id = ?', [id])
+        
+      return result
+
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   static async postMonster(body){
     try{
@@ -94,17 +106,30 @@ export default class monsterModel{
   }
   static async patchMonster(id, data){
     try{
-        const {rate, drinked_date,description} = data
+        const {rate, date_drinked,description} = data
 
-        // await GLOBAL_CONFIG.query(`
-        //   update monster set rate= ? , drinked_date = ? , description = ?`,
-        // [rate,drinked_date,description])
+        await GLOBAL_CONFIG.query(`
+          update monster set rate= ? ,date_drinked = ? , description = ? where id = ?`,
+        [rate,date_drinked,description, id])
 
-        console.log(data);
+        const [comprobation] = await GLOBAL_CONFIG.query(`
+          select * from monster where id = ?`,
+        [ id])
 
+
+          return comprobation
     }catch(e){
       console.log(e);
     }
   }
 
+  static async deleteMonster(id){
+    try {
+      await GLOBAL_CONFIG.query('delete from monster where id = ?', [id])
+      
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

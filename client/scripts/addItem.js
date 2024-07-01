@@ -1,4 +1,4 @@
-const url = 'https://monsterdrinkedlog.onrender.com/api/monster'
+const url = 'http://localhost:3000/api/monster'
 
 const monsterName =  document.querySelector('.monsterName')
 const monsterColor =  document.querySelector('.monsterColor')
