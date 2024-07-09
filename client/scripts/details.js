@@ -1,7 +1,7 @@
 
 const urlParams = new URLSearchParams(window.location.search)
 const monsterName = urlParams.get('name')
-const url =  'http://localhost:3000/api/monster/info'
+const url =  'https://monsterdrinkedlog.onrender.com/api/monster/info'
 const content = document.querySelector('.container')
 const updateItem = document.querySelector('.update-item')
 const updateButton = document.querySelector('.updateButton')
@@ -180,8 +180,8 @@ async function deleteMonter(id){
   try {
     
     const response = await axios.delete(`http://localhost:3000/api/monster/${id}`)
-    console.log(response);
 
+    location.reload()
     
 
   } catch (error) {
